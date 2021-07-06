@@ -1,0 +1,64 @@
+<mat-toolbar>
+  <button mat-icon-button *ngIf="sidenav.mode === 'over' "(click)="sidenav.toggle()" >
+    <mat-icon *ngIf="!sidenav.opened">
+      menu
+    </mat-icon>
+    <mat-icon *ngIf="sidenav.opened">
+      close
+    </mat-icon>
+    </button>
+  <div class="text">
+  <h1>Online Tutorials</h1>
+</div>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+
+
+  <mat-sidenav #sidenav="matSidenav" >
+    <img class="logo" [src]="myimage" alt="logo">
+
+<div>
+<button mat-button class="menu-button" (click)="video()" [title]="play">
+      <span>JAVA</span>
+    </button>
+  </div>
+  <div>
+    <button mat-button class="menu-button" (click)="video1()" [title]="play" >
+      <span>PYTHON</span>
+    </button>
+  </div>
+<div>
+    <button mat-button class="menu-button" (click)="video2()" [title]="play">
+      <span>ANGULAR</span>
+    </button>
+  </div>
+    <mat-divider></mat-divider>
+    <button mat-button class="menu-button">
+      <mat-icon>help</mat-icon>
+      <span>HELP</span>
+    </button>
+
+  </mat-sidenav>
+
+  <div class="disp">
+  <ng-container *ngIf="videodisabled; else videoblock"></ng-container>
+<ng-template #videoblock>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/eIrMbAQSU34" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</ng-template>
+</div>
+<div class="disp">
+  <ng-container *ngIf="videodisabled1; else videoblock1"></ng-container>
+<ng-template #videoblock1>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/_uQrJ0TkZlc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</ng-template>
+</div>
+<div class="disp">
+  <ng-container *ngIf="videodisabled2; else videoblock2"></ng-container>
+  <ng-template #videoblock2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/k5E2AVpwsko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   </ng-template>
+</div>
+
+</mat-sidenav-container>
